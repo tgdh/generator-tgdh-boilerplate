@@ -1,0 +1,25 @@
+/* ===========================================================
+
+  # OVERRIDES
+
+=========================================================== */
+
+.no-mustard * {
+	transition: none!important;
+}
+
+.clearfix {
+	@include clearfix;
+}
+
+.hide-text {
+	@include hide-text;
+}
+
+.t-strong {
+	font-weight: 700;
+}
+
+.t-small {
+	font-size: 75%;
+}

@@ -1,0 +1,12 @@
+# robots.txt
+User-agent: *
+Sitemap: http://<%= siteUrl %>/sitemap?altTemplate=xmlsitemap
+Host: http://<%= siteUrl %>
+Disallow: /aspnet_client/
+Disallow: /bin/
+Disallow: /config/
+Disallow: /data/
+Disallow: /umbraco/
+Disallow: /umbraco_client/
+Disallow: /usercontrols/
+Disallow: /xslt/

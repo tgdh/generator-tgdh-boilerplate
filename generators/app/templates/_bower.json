@@ -1,0 +1,12 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.0",
+  "siteUrl": "",
+  "devDependencies": {
+    "fastclick": "~1.0.3",
+    "html5shiv": "~3.7.2",
+    "lazysizes": "~1.1.3",
+    "picturefill": "~2.3.1",
+    "modernizr": "~2.8.3"
+  }
+}
