@@ -1,0 +1,26 @@
+/* ===========================================================
+
+	# Generic grid
+
+=========================================================== */
+
+@include respond-max( $mq-small ) {
+
+	.o-grid__item {
+		@include column( 1/2, $cycle: 2 );
+	}
+
+}
+
+@include respond-min( $mq-small ) {
+
+	.o-grid--three {
+
+		.o-grid__item {
+			@include column( 1/3, $cycle: 3 );
+			margin-bottom: 2%;
+		}
+
+	}
+
+}

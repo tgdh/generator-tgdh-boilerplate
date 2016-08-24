@@ -1,0 +1,25 @@
+/* ===========================================================
+
+	# Footer
+
+=========================================================== */
+
+.c-footer {
+	background-color: $light-1;
+}
+
+@include respond-min( $mq-large ) {
+
+	.c-footer__inner {
+		@include clearfix;
+	}
+
+	.c-footer__col {
+		@include column( 1/2 );
+	}
+
+}
+
+
+
+

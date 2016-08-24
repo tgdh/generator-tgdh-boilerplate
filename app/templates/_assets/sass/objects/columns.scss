@@ -1,0 +1,25 @@
+/* ===========================================================
+
+	# Generic columns
+
+=========================================================== */
+
+@include respond-max( $mq-small ) {
+
+	.o-col + .o-col {
+		margin-top: $line-height;
+	}
+
+}
+
+@include respond-min( $mq-small ) {
+
+	.o-col--three {
+
+		.o-col {
+			@include column( 1/3 );
+		}
+
+	}
+
+}

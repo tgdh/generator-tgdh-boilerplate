@@ -1,0 +1,25 @@
+/* ===========================================================
+
+	# Free Content
+
+=========================================================== */
+
+.s-free-content {
+	
+}
+
+@include respond-min( $mq-small ) {
+	.s-free-content {
+		.o-table {
+			margin: $padding-medium / 2 0;
+		}
+	}
+}
+
+@include respond-min( $mq-medium ) {
+	.s-free-content {
+		.o-table {
+			margin: $padding-large / 2 0;
+		}
+	}
+}

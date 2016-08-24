@@ -1,0 +1,46 @@
+/* ===========================================================
+
+	# Breadcrumb
+
+=========================================================== */
+
+.c-breadcrumb__label {
+	@include hide-text;
+}
+
+.c-breadcrumb__list {
+	margin: inherit;
+	list-style: none;
+	@include clearfix();
+}
+
+.c-breadcrumb__item {
+	float: left;
+}
+
+.c-breadcrumb__item {
+	margin: 0;
+
+	&:before {
+		content: "/";
+	}
+
+	&:first-of-type {
+
+		&:before {
+			content: none;
+		}
+
+	}
+}
+
+.c-breadcrumb__link {
+	padding: 1rem;
+	display: inline-block;
+
+	&.is-active {
+		color: $text-colour;
+		cursor: default;
+	}
+}
+

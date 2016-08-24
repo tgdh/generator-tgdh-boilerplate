@@ -1,0 +1,169 @@
+/* ===========================================================
+
+	# Nav – Super
+
+=========================================================== */
+
+.c-nav--super {
+
+	.c-nav__list {
+		list-style: none;
+	}
+
+	.c-nav__item {
+		margin: 0;
+	}
+
+	.c-nav__link {
+		color: $white;
+
+		i {
+			font-size: 1.6rem;
+			vertical-align: text-bottom;
+		}
+	}
+
+}
+
+
+@include respond-max( $mq-small ) {
+
+	.enhance {
+
+		.c-nav--super {
+
+			.c-nav__link {
+				padding-left: 1.5rem;
+				padding-right: 1.5rem;
+			}
+
+		}
+
+	}
+
+}
+
+@include respond-min-max( $mq-small, $mq-medium ) {
+
+	.enhance {
+
+		.c-nav--super {
+
+			.c-nav__link {
+				padding-left: 2rem;
+				padding-right: 2rem;
+			}
+
+		}
+	}
+
+}
+
+@include respond-max( $mq-small ) {
+	
+	.enhance {
+
+		.c-nav--super:before {
+			margin-right: 1.5rem;
+			margin-left: 1.5rem;
+		}
+
+		.c-nav--super .c-nav__link {
+			padding: 1rem 1.5rem;
+		}
+
+	}
+
+}
+
+@include respond-min-max( $mq-small, $mq-medium ) {
+
+	.enhance {
+
+		.c-nav--super:before {
+			margin-right: 2rem;
+			margin-left: 2rem;
+		}
+
+		.c-nav--super .c-nav__link {
+			padding: 1rem 2rem;
+		}
+
+	}
+
+}
+
+@include respond-min-max( $mq-medium, $mq-large ) {
+
+	.enhance {
+
+		.c-nav--super:before {
+			margin-right: 4rem;
+			margin-left: 4rem;
+		}
+
+		.c-nav--super .c-nav__link {
+			padding: 1rem 4rem;
+		}
+
+	}
+
+}
+
+@include respond-max( $mq-large ) {
+
+	.c-nav--super {
+
+		.c-nav__link {
+			padding: 1rem;
+			display: block;
+		}
+
+	}
+
+	.no-enhance {
+
+		.c-nav--super {
+
+			.c-nav__list {
+				border-top: .2rem solid $pri;
+			}
+
+			.c-nav__link {
+				color: $dark-1;
+			}
+
+		}
+
+	}
+
+	.enhance {
+
+		.c-nav--super:before {
+			content: "";
+			height: .2rem;
+			display: block;
+			background-color: $white;
+		}
+
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.c-nav--super {
+
+		.c-nav__item {
+			display: inline;
+		}
+
+		.c-nav__link {
+			display: inline-block;
+			padding: .6rem 1rem;
+			font-size: $font-size-small	/ $type-scale-small;
+		}
+
+	}
+
+}

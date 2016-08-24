@@ -1,0 +1,233 @@
+/* ===========================================================
+	
+	# Form
+
+=========================================================== */
+$line-height-half: $line-height / 2;
+
+.o-form__field {
+	& + & {
+		padding-top: $padding-small;
+	}
+}
+
+.o-input,
+.o-select select,
+.o-textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
+.o-validation {
+	display: none;
+	margin-top: $line-height / 4;
+
+	.is-valid & {
+		display: block;
+		color: $success;
+	}
+
+	.is-invalid & {
+		display: block;
+		color: $error;
+	}
+}
+
+
+
+//= LABEL ====================================================
+
+.o-label {
+	font-weight: $bold;
+	padding-bottom: $line-height / 4;
+}
+
+.o-label__note {
+	color: $border-colour;
+	float: right;
+	font-size: .8em;
+	font-style: italic;
+}
+
+
+
+//= SELECT ===================================================
+
+.o-select {
+	position: relative;
+	vertical-align: middle;
+	z-index: 1;
+
+	select {
+		position: relative;
+		text-indent: .01px;
+		text-overflow: '';
+		z-index: 1;
+
+		&::-ms-expand {
+		    display: none;
+		}
+
+		.lt-ie10 & {
+			padding-right: 1rem;
+		}
+	}
+
+	&:after {
+		background: $background-colour;
+		border-radius: 0 $border-radius - $border-width $border-radius - $border-width 0;
+		box-sizing: border-box;
+		color: $border-colour;
+		content: '\25BE';
+		display: block;
+		height: calc( 100% - .2rem );
+		padding: 1rem 1.5rem;
+		position: absolute;
+		pointer-events: none;
+		right: $border-width;
+		top: $border-width;
+		z-index: 0;
+
+		.lt-ie10 & {
+			display: none;
+		}
+	}
+}
+
+// FireFox 30 hide native down arrow
+:-moz-any( .o-select ):after {
+	z-index: 1;
+}
+
+
+//= FIELDSET =================================================
+
+.o-fieldset__legend {
+	font-weight: $bold;
+	padding-bottom: $line-height / 4;
+	width: 100%;
+
+	.o-label__note {
+		float: none;
+	}
+
+}
+
+.o-fieldset__list {
+	list-style: none;
+}
+
+.o-fieldset__item {
+	margin: 0;
+
+	.o-label {
+		font-weight: normal;
+	}
+
+	input {
+		margin: 0 .5rem 0 0;
+		width: auto;
+	}
+
+}
+
+.enhance {
+
+	.o-checkbox,
+	.o-radio {
+		font-weight: normal;
+		padding: $line-height-half $line-height-half $line-height-half 3rem;
+		position: relative;
+
+		.o-checkbox__label:before,
+		.o-radio__label:before {
+			content: "";
+			width: 2rem;
+			height: 2rem;
+			background: transparent;
+			border: $border-width solid $border-colour;
+			box-sizing: border-box;
+			content: '';
+			position: absolute;
+			top: $line-height-half;
+			left: 0;
+			transition: background-color $speed $ease,
+						border-color $speed $ease;
+		}
+
+		.o-checkbox__input,
+		.o-radio__input {
+			display: none;
+
+			&:checked {
+				
+				+ .o-checkbox__label:before,
+				+ .o-radio__label:before {
+					background-color: $pri;
+					border-color: darken( $pri, 10 );
+				}
+
+			}
+
+		}
+
+		.o-checkbox__label:before {
+			border-radius: $border-radius;
+		}
+
+		.o-radio__label:before {
+			border-radius: 50%;
+		}
+
+	}
+
+
+	.o-label--checkbox {
+		&:after {
+			border-radius: $border-radius;
+		}
+	}
+
+	.o-label--radio {
+		&:after {
+			border-radius: 100%;
+		}
+	}
+
+	.is-disabled {
+
+		.o-checkbox__label,
+		.o-radio__label {
+
+			&:before {
+				background-color: $disabled;
+			}
+
+		}
+	}
+
+}
+
+
+//= BUTTON ===================================================
+
+.o-input + .c-button,
+.o-select + .c-button,
+.o-textarea + .c-button {
+	margin-top: $line-height * 2;
+}
+
+@include respond-max( $mq-medium ) {
+
+	.enhance {
+
+		.o-fieldset__item + .o-fieldset__item {
+			// margin-top: $padding-small / 2;
+		}
+
+	}
+
+}

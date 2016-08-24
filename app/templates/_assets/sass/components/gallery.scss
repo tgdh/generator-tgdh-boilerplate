@@ -1,0 +1,33 @@
+/* ===========================================================
+
+	# Galley
+
+=========================================================== */
+
+.no-enhance {
+
+	.c-gallery__item {
+		@include column( 1/4, $cycle: 4 );
+		margin-bottom: 3%;
+	}
+
+	.c-gallery__inner {
+		@include clearfix();
+	}
+
+}
+
+.enhance {
+
+	.c-gallery {
+		@include pad-top(600,400);
+		background-color: $light-1;
+		overflow: hidden;
+	}
+	
+	.c-gallery__inner {
+		position: absolute;
+		top: 0;
+	}
+
+}

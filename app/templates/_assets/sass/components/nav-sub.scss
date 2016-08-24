@@ -1,0 +1,62 @@
+/* ===========================================================
+
+	# Nav - Sub
+
+=========================================================== */
+
+.c-nav--sub {
+	background-color: $light-1;
+
+	.c-nav__list {
+
+	}
+
+	.c-nav__item {
+		margin: 0;
+		list-style: none;
+	}
+
+	.c-nav__link {
+		color: $heading-colour;
+		padding: $line-height / 2 1em;
+		display: block;
+		background-color: $light-1;
+		transition: color $speed $ease,
+					background $speed $ease;
+
+		&:hover,
+		&:focus {
+			background-color: $light-3;
+		}
+
+		&.is-active {
+			color: $white;
+			background-color: $pri;
+		}
+	}
+
+	.c-nav__item--parent {
+
+	}
+
+	.c-nav__list--sub {
+		margin: 0;
+		padding-left: $line-height;
+		background-color: $l-blue;
+
+		.c-nav__link {
+			background-color: $l-blue;
+
+			&:hover,
+			&:focus {
+				background-color: darken( $l-blue, 5 );
+			}
+
+			&.is-active {
+				color: $pri;
+				font-weight: 700;
+			}
+		}
+	}
+
+}

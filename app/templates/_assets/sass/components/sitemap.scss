@@ -1,0 +1,51 @@
+/* ===========================================================
+
+	# Sitemap
+
+=========================================================== */
+
+.c-sitemap {
+	list-style: none;
+
+	> li > ul {
+		margin-top: $line-height;
+	}
+}
+
+.c-sitemap__item {
+	line-height: $line-height;
+	vertical-align: top;
+	position: relative;
+	list-style: none;
+	margin: 0;
+}
+
+.c-sitemap__link {
+	text-decoration: none;
+	display: inline-block;
+}
+
+.c-sitemap__list {
+	margin-top: 0;
+	margin-bottom: $line-height;
+	margin-left: $line-height;
+
+	.c-sitemap__item {
+		position: relative;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			width: $line-height;
+			height: $line-height;
+			position: absolute;
+			top: -$line-height / 2;
+			border-left: 1px solid $border-colour;
+			border-bottom: 1px solid $border-colour;
+		}
+
+		.c-sitemap__link {
+			margin-left: $line-height * 1.5;
+		}
+	}
+}

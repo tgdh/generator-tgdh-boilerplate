@@ -1,0 +1,192 @@
+/* ===========================================================
+
+	# Tabs
+
+=========================================================== */
+
+.no-enhance {
+
+	.c-tabs__nav {
+		border-left: .2rem solid $pri;
+		margin-bottom: $line-height;
+
+		&:before {
+			content: "Contents";
+			padding: 1rem;
+			font-weight: $bold;
+			font-size: 1.2rem;
+		}
+	}
+
+	.c-tabs__nav-list {
+		list-style: none;
+	}
+
+	.c-tabs__nav-item {
+		margin: 0;
+	}
+
+	.c-tabs__nav-tab {
+		padding: ( $line-height / 4 ) $line-height / 2;
+		display: block;
+	}
+
+	.c-tabs__content-tab + .c-tabs__content-tab {
+		margin-top: $line-height;
+	}
+
+}
+
+.enhance {
+	
+	.js-tabs {
+		opacity: 0;
+		transition: opacity $speed $ease;
+
+		&.js-tabs--loaded {
+			opacity: 1;
+		}
+	}
+
+	.c-tabs__nav {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.c-tabs__nav-list,
+	.c-tabs__nav-item {
+		display: flex;
+	}
+
+	.c-tabs__nav-list {
+		list-style: none;
+		overflow-x: auto;
+    	overflow-y: hidden;
+    	width: 100%;
+//    	width: calc( 100% - 6rem );
+//		margin-left: 3rem;
+	}
+
+	.c-tabs__nav-item {
+		margin: 0;
+		flex-shrink: 0;
+
+		&.is-active .c-tabs__nav-tab {
+			cursor: default;
+		}
+	}
+
+	.c-tabs__nav-tab {
+		padding: 1.2rem;
+		display: block;
+		transition: color $speed $ease,
+					background $speed $ease;
+	}
+
+	.c-tabs__page {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		transition: color $speed $ease,	
+					opacity $speed $ease;
+
+		&.is-disabled {
+			opacity: .1;
+		}
+	}
+
+	.c-tabs__page--prev {
+		left: 0;
+	}
+
+	.c-tabs__page--next {
+		right: 0;
+	}
+
+	.c-tabs__nav {
+		
+		&.is-start {
+			.c-tabs__page--prev {
+				opacity: .1;
+			}
+		}
+
+		&.is-end {
+			.c-tabs__page--next {
+				opacity: .1;
+			}
+		}
+
+	}
+
+	.c-tabs__content {
+		position: relative;
+		transition: height $speed $ease;
+	}
+
+	.c-tabs__content-tab {
+		width: 100%;
+		padding: 1rem;
+		position: absolute;
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity $speed $ease,
+					visibility $speed $ease;
+
+		&.is-active {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+}
+
+/* Theme */
+
+.enhance {
+
+	.c-tabs__nav {
+		padding-left: 5rem;
+		padding-right: 5rem;
+	}
+
+	.c-tabs__nav-item {
+
+		+ .c-tabs__nav-item {
+			margin-left: $line-height;
+		}
+
+		.c-tabs__nav-tab {
+			color: $white;
+			background-color: $pri;
+			padding: 1.4rem 4rem;
+			border-radius: $border-radius $border-radius 0 0;
+
+			&:hover,
+			&:focus {
+				background-color: darken( $pri, 5% );
+			}
+		}
+
+		&.is-active .c-tabs__nav-tab {
+			color: $pri;
+			background-color: $light-1;
+		}
+
+	}
+
+	.c-tabs__page,
+	.c-tabs__content {
+		background-color: $light-1;
+	}
+
+	.c-tabs__page {
+		padding: 1rem;
+	}
+
+	.c-tabs__content-tab {
+		padding: $line-height * 2;
+	}
+
+
+}

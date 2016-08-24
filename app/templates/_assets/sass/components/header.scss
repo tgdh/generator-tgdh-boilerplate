@@ -1,0 +1,90 @@
+/* ===========================================================
+
+	# Header
+
+=========================================================== */
+
+.c-header {
+	background-color: $light-1;
+	position: relative;
+	z-index: 10;
+	transition: background $speed $ease,
+				border-color $speed $ease;
+}
+
+.c-header__logo-link {
+	display: block;
+	float: left;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.c-header__logo-image {
+	width: 9.3rem;
+}
+
+.c-header__toggle-menu-button {
+	display: none;
+}
+
+@include respond-max( $mq-large ) {
+
+	.enhance {
+
+		.c-header__toggle-menu-button {
+			color: $pri;
+			font-size: 2.4rem;
+			display: block;
+			float: right;
+			padding: .9rem 1.3rem .8rem;
+			transition: color $speed $ease,
+						background $speed ease;
+
+			i {
+				vertical-align: middle;
+			}
+
+			&:hover,
+			&:focus {
+				color: $sec;
+			}
+		}
+
+		.c-header__logo-link {
+			position: relative;
+		}
+
+		&.nav-main-open {
+
+			.c-header__toggle-menu-button {
+				color: $white;
+
+				&:hover,
+				&:focus {
+					color: $pri;
+				}
+			}
+
+		}
+
+	}
+
+}
+
+@include respond-min( $mq-large ) {
+
+	.c-header__logo-image {
+		width: 15rem;
+	}
+
+	.c-header__inner {
+		float: left;
+	}
+
+	.c-nav--main {
+		float: right;
+	}
+
+}
+
+

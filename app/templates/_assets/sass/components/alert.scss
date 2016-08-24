@@ -1,0 +1,38 @@
+/* ===========================================================
+
+	# Alert
+
+=========================================================== */
+
+.c-alert {
+	color: $white;
+	padding: 1rem 2rem;
+	border-radius: $border-radius;
+	transition: opacity $speed $ease,
+				color $speed $ease,
+				background $speed $ease,
+				visibility $speed $ease;
+
+	&.is-hidden {
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	&.is-visible {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.c-alert--success {
+	background-color: $success;
+}
+
+.c-alert--error {
+	background-color: $error;
+}
+
+.c-alert--info {
+	background-color: $pri;
+}
+

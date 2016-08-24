@@ -1,0 +1,54 @@
+/* ===========================================================
+
+	# Tile
+
+=========================================================== */
+
+.c-tile__content {
+	color: $text-colour;
+	background-color: $light-1;
+	padding: 1.4rem;
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	transition: background $speed $ease;
+}
+
+.c-tile__link {
+
+	&:hover,
+	&:focus {
+
+		.c-tile__content {
+			background-color: $light-2;
+		}
+
+	}
+
+}
+
+.c-tile--no-description {
+
+	.c-tile__name {
+		padding-bottom: 0;
+	}
+
+}
+
+.c-tile__image-wrap {
+	position: relative;
+	background-position: center;
+	background-position: cover;
+	background-color: $placeholder-colour;
+	overflow: hidden;
+	@include pad-top(300,200);
+}
+
+.c-tile__image {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
