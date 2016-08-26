@@ -11,7 +11,7 @@ var IsModern = (function () {
 	var _enhanceStyles = function() {
 
 		if( isModern ){
-			if( $html.classList.contains('no-enhance') ) {
+			if( Modernizr.classlist && $html.classList.contains('no-enhance') ) {
 				$html.classList.remove('no-enhance');
 				$html.classList.add('enhance');
 			}
@@ -20,6 +20,9 @@ var IsModern = (function () {
 
 	};
 
+	if( isModern() ) {
+		_enhanceStyles();
+	}
 
 
   return {
