@@ -1,3 +1,17 @@
+@using Umbraco.Web
+@using Umbraco.Web.Mvc
+@using System.Text.RegularExpressions
+@inherits UmbracoViewPage<IPublishedContent>
+@{
+    Layout = null;
+
+    Regex rgx = new Regex( "[^0-9a-zA-Z]+" );
+    string pageScope = "s-" + rgx.Replace( Model.DocumentTypeAlias , "");
+
+    var homePage = Umbraco.TypedContentAtRoot().First();
+    var settings = homePage.Descendants("globalSettings").First();
+
+}
 <!doctype html>
 <html lang="en" class="no-enhance @pageScope">
     <head>
@@ -5,26 +19,58 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
 
-         <link rel="author" href="/humants.txt">
+        @Html.Partial("~/Views/Partials/Components/SEO.cshtml")
+
+        <link rel="author" href="/humants.txt">
 
         <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="/site/assets/css/style.css">
+            <link rel="stylesheet" href="/assets/css/style.css">
         <!--<![endif]-->
 
         <!--[if lt IE 9]>
-            <script src="/assets/js/html5shiv.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
             <link rel="stylesheet" href="/assets/css/ie.css">
         <![endif]-->
 
-        <script src="/test-assets/js/head.js"></script>
+        <script src="/assets/js/head.js"></script>
 
+        @Html.Partial("~/Views/Partials/Components/Fonts.cshtml")
+        @Html.Partial("~/Views/Partials/Components/SocialMeta.cshtml")
+        <!-- ADDITIONAL OPEN GRAPH, TWITTER CARD PROPERTIES -->
+        @RenderSection("OpenGraph", required: false)
+        @Html.Partial("~/Views/Partials/Components/Favicons.cshtml")
     </head>
     <body class="o-page">
-        <p>Hello</p>
+        @Html.Partial("~/Views/Partials/Page/Header.cshtml")
+        @RenderBody()
+        @Html.Partial("~/Views/Partials/Page/Footer.cshtml")
+
+        <!--[if lt IE 9]>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <![endif]-->
+
         <!--[if gte IE 9]><!-->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-            <script src="/site/assets/js/main.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.js"></script>
+            <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js"></script>
+            <script src="/assets/js/main.js"></script>
         <!--<![endif]-->
 
+        @if( settings.HasValue("trackingId") ) {
+            var trackingId = settings.GetPropertyValue<string>("trackingId");
+
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+                ga('create', '@trackingId', 'auto');
+                ga('send', 'pageview');
+            </script>
+        }
+        @RenderSection("Scripts", required: false)
+        <!--[if (gte IE 6)&(lte IE 8)]>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+        <![endif]-->
     </body>
 </html>

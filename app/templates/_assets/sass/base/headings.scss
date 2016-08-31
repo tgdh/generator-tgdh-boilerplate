@@ -38,6 +38,13 @@ $tera-large: 		$giga-large			*	$type-scale-large;
 $intro-large: 		$epsilon-large;
 
 
+h1,
+h2,
+h3,
+h4 {
+	color: $heading-colour;
+	font-weight: $bold;
+}
 
 h1,
 h2,
@@ -50,12 +57,7 @@ h6,
 .u-mega,
 .u-alpha,
 .u-beta,
-.u-gamma,
-.u-delta,
-.u-epsilon,
-.u-zeta {
-	color: $heading-colour;
-	font-weight: $bold;
+.u-gamma {
 	line-height: 1.1;
 }
 

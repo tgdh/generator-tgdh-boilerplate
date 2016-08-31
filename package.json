@@ -1,6 +1,6 @@
 {
   "name": "generator-tgdh-boilerplate",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "TGDH boilerplate & tooling for responsive websites.",
   "url": "http://tgdh.co.uk",
   "main": "app/index.js",
