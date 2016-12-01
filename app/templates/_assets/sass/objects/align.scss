@@ -1,0 +1,30 @@
+/* ===========================================================
+
+	# Align
+
+=========================================================== */
+
+.o-align--full,
+.o-align--default {
+	clear: both;
+}
+
+
+@include respond-min( $mq-medium ) {
+
+	.o-align--left,
+	.o-align--right {
+		width: 40%;
+	}
+
+	.o-align--left {
+		float: left;
+		margin-right: $line-height * 2;
+	}
+
+	.o-align--right {
+		float: right;
+		margin-left: $line-height * 2;
+	}
+
+}

@@ -1,0 +1,202 @@
+/* ===========================================================
+
+	# Carousel
+
+=========================================================== */
+
+.js-carousel {
+
+	.c-carousel__item {
+		display: none;
+	}
+
+	.c-carousel__item--first {
+		display: block;
+	}
+
+	&.slick-initialized {
+
+		.c-carousel__item {
+			display: block;
+		}
+
+	}
+
+}
+
+.c-carousel {
+	position: relative;
+}
+
+.c-carousel--prev,
+.c-carousel--next {
+	font-size: 3.2rem;
+	position: absolute;
+	top: 50%;
+	z-index: 2;
+	line-height: 1;
+	transform: translateY( -50% );
+
+	&:before {
+		color: $pri;
+		transition: color $speed $ease;
+	}
+
+	i {
+		color: $white;
+		font-size: 1rem;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		left: 0;
+		text-align: center;
+		margin-top: -.8rem;
+	}
+
+	&:hover,
+	&:focus {
+
+		&:before {
+			color: darken( $pri, 10 );
+		}
+
+	}
+
+	&.slick-disabled {
+		&:before {
+			color: lighten( $pri, 20 );
+		}
+	}
+}
+
+.c-carousel--prev {
+	left: 0;
+}
+
+.c-carousel--next {
+	right: 0;
+}
+
+.c-carousel--invert {
+
+	.c-carousel--prev,
+	.c-carousel--next {
+		color: $white;
+		opacity: .5;
+		transition: opacity $speed $ease;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+	}
+
+}
+
+/* dots */
+
+.c-carousel__dots {
+    position: relative;
+    list-style: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    li {
+        position: relative;
+        display: inline-block;
+        width: 2.1rem;
+		height: 2.1rem;
+        margin: 0 .5rem;
+        padding: 0;
+        cursor: pointer;
+
+		&:before {
+			display: none !important;
+		}
+
+		&:hover,
+		&:focus,
+		&.slick-active {
+
+			button:before {
+				background-color: $pri;
+			}
+
+		}
+
+	}
+
+    button {
+        border: .2rem solid $pri;
+        background: transparent;
+        display: block;
+        height: 2.1rem;
+        width: 2.1rem;
+        outline: none;
+        line-height: 0;
+        font-size: 0;
+        color: transparent;
+        padding: .5rem;
+        cursor: pointer;
+		border-radius: 50%;
+
+        &:hover,
+		&:focus {
+            outline: none;
+        }
+    }
+
+	.slick-active {
+		button {
+			background-color: $pri;
+		}
+	}
+
+}
+
+.c-carousel--invert {
+
+	.c-carousel__dots {
+
+		button {
+			border-color: $white;
+		}
+
+		.slick-active {
+			button {
+				background-color: $white;
+			}
+		}
+
+
+	}
+
+}
+
+.c-carousel--images {
+	.c-carousel__dots {
+		position: absolute;
+		bottom: $line-height;;
+	}
+}
+
+@include respond-min( $mq-medium ) {
+
+	.c-carousel--prev,
+	.c-carousel--next {
+		font-size: 4.8rem;
+	}
+
+	.c-carousel--prev {
+		left: -2.4rem;
+	}
+
+	.c-carousel--next {
+		right: -2.4rem;
+	}
+
+
+}

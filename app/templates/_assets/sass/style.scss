@@ -9,47 +9,52 @@
 =========================================================== */
 
 
-@import 'settings/global.scss';
+@import 'settings/global';
 
-@import 'tools/mixins.scss',
+@import 'tools/mixins',
 		'tools/jeet/_functions',
 		'tools/jeet/_grid';
 
 
-@import 'generic/reset.scss',
-		'generic/js-breakpoints.scss';
+@import 'generic/reset',
+		'generic/js-breakpoints';
 
-@import 'base/text.scss',
-		'base/headings.scss',
-		'base/anchor.scss',
-		'base/button.scss',
-		'base/lists.scss',
-		'base/table.scss',
-		'base/forms.scss';
+@import 'base/text',
+		'base/headings',
+		'base/anchor',
+		'base/button',
+		'base/lists',
+		'base/table',
+		'base/forms';
 
-@import 'objects/page.scss',
-		'objects/wrap.scss',
-		'objects/section.scss',
-		'objects/columns.scss',
-		'objects/grid.scss',
-		'objects/table.scss',
-		'objects/forms.scss',
-		'objects/media.scss';
+@import 'objects/page',
+		'objects/wrap',
+		'objects/section',
+		'objects/columns',
+		'objects/grid',
+		'objects/table',
+		'objects/forms',
+		'objects/aspect',
+		'objects/align',
+//		'objects/logos',
+		'objects/media';
 
-@import 'components/header.scss',
-		'components/nav.scss',
-		'components/buttons.scss',
-		'components/article.scss',
-		'components/meta-data.scss',
-		'components/quote.scss',
-		'components/cover.scss',
-		'components/footer.scss',
-		'components/tile.scss',
-		'components/caption.scss',
-		'components/breadcrumb.scss',
-		'components/alert.scss',
-		'components/tabs.scss',
-		'components/sitemap.scss';
+@import 'components/header',
+		'components/nav',
+		'components/buttons',
+		'components/meta-data',
+		'components/quote',
+		'components/footer',
+		'components/caption',
+//		'components/carousel',
+//		'components/breadcrumb',
+//		'components/map',
+//		'components/social',
+//		'components/tile',
+//		'components/pagination',
+		'components/alert',
+		'components/tabs',
+		'components/sitemap';
 
-@import 'trumps/overrides.scss',
-		'trumps/free-content.scss';
+@import 'trumps/overrides',
+		'trumps/free-content';

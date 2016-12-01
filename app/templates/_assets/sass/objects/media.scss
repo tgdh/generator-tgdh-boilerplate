@@ -10,7 +10,6 @@ img {
 }
 
 .o-media {
-	margin: $padding-small / 2 0;
 	position: relative;
 
 	img {
@@ -38,58 +37,5 @@ img {
 		position: absolute;
 		top: 0;
 		width: 100%;
-	}
-}
-
-@include respond-min-max( $mq-small, $mq-medium ) {
-
-	.o-media {
-		margin: $padding-medium / 2 0;
-	}
-
-}
-
-@include respond-min( $mq-medium ) {
-	.o-media {
-		margin: $padding-large / 2 0;
-
-		img {
-			border-radius: $border-radius;
-		}
-	}
-
-	.o-media--left,
-	.o-media--right {
-		margin-bottom: $line-height;
-		margin-top: $line-height;
-		width: 40%;
-
-		+ * {
-			margin-top: $line-height;
-		}
-	}
-
-	.o-media--left {
-		float: left;
-		margin-right: $line-height;
-	}
-
-	.o-media--right {
-		float: right;
-		margin-left: $line-height;
-	}
-}
-
-@include respond-min-max( $mq-large, $mq-x-large ) {
-	.o-media--large {
-		margin-left: -7.5%;
-		width: 115%;
-	}
-}
-
-@include respond-min( $mq-x-large ) {
-	.o-media--large {
-		margin-left: -15%;
-		width: 130%;
 	}
 }

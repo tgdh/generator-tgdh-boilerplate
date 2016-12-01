@@ -1,0 +1,50 @@
+/* ===========================================================
+	# Logos
+=========================================================== */
+
+.o-logo-wrap {
+	text-align: center;
+}
+
+.o-logo {
+	display: inline-block;
+	padding: $line-height 0;
+}
+
+@include respond-max( $mq-small ) {
+
+	.o-logo {
+		max-width: 45%;
+	}
+
+	.js-carousel-tile {
+
+		.o-logo {
+			max-width: inherit;
+		}
+
+	}
+
+}
+
+@include respond-min( $mq-small ) {
+
+	.o-logo {
+		max-width: 20rem;
+	}
+
+}
+
+
+.o-logo__image {
+	display: block;
+    margin: auto;
+    max-width: 75%;
+}
+
+.o-logo__label {
+	text-align: center;
+	font-size: 11px;
+	display: block;
+	margin-top: $line-height / 4;
+}

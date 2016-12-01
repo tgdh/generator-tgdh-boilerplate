@@ -10,12 +10,22 @@ html {
 
 .o-page {
 	background: $background-colour;
-	display: flex;
-	flex-direction: column;
 	min-height: 100%;
 }
 
 .o-page__inner {
-	flex: 1 1 auto;
 	width: 100%;
+}
+
+.flexbox {
+
+	.o-page {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.o-page__inner {
+		flex: 1 1 auto;
+	}
+
 }

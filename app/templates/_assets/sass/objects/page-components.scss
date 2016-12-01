@@ -3,3 +3,7 @@
 	# Page components
 
 =========================================================== */
+
+.o-page-component + .o-page-component {
+	margin-top: $line-height * 2;
+}

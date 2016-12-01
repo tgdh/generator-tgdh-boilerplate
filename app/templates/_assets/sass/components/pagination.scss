@@ -4,10 +4,24 @@
 
 =========================================================== */
 
-.c-pagination__page {
+.c-pagination {
+	margin-top: $line-height;
+}
+
+.c-pagination__link {
 	padding: 1.7rem;
-	color: $white;
-	font-size: 1.6rem;
-	background-color: $pri;
+	color: $text-colour;
 	display: inline-block;
+
+	&.is-active {
+		font-weight: $bold;
+	}
+}
+
+@include respond-min( $mq-medium ) {
+
+	.c-pagination {
+		text-align: right;
+	}
+
 }
