@@ -50,9 +50,24 @@
 	if( $window.IsModern ){
 
 		enhanceEdgeCaseBrowsers();
-		$('.js-tabs').tabs();
+//		$window.ToggleClass.init();
+//		$('select').selectric();
+//		scrollTo($('a[href^="#"]:not(".js-no-scroll")'));
+//		$('.js-tabs').tabs();
 
-		//MQ.init(breakpoints);
+		$window.Carousel.init( $('.js-carousel') );
+//		$window.Modal.init( $('.js-modal') );
+//		$window.Accordion.init();
+//		$window.GMaps.init();
+//		$window.ValidateForms.init( $('.js-form') );
+
+	//		MQ.init(breakpoints);
+	}
+
+	if (!Modernizr.svg) {
+		$('img[src*="svg"]').attr('src', function() {
+			return $(this).attr('src').replace('.svg', '.png');
+		});
 	}
 
 })(jQuery);

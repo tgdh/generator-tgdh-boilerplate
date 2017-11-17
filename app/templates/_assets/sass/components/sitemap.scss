@@ -29,23 +29,23 @@
 	margin-top: 0;
 	margin-bottom: $line-height;
 	margin-left: $line-height;
+}
 
-	.c-sitemap__item {
-		position: relative;
+.c-sitemap__item {
+	position: relative;
 
-		&:before {
-			content: "";
-			display: inline-block;
-			width: $line-height;
-			height: $line-height;
-			position: absolute;
-			top: -$line-height / 2;
-			border-left: 1px solid $border-colour;
-			border-bottom: 1px solid $border-colour;
-		}
-
-		.c-sitemap__link {
-			margin-left: $line-height * 1.5;
-		}
+	&:before {
+		content: "";
+		display: inline-block;
+		width: $line-height;
+		height: $line-height;
+		position: absolute;
+		top: -$line-height / 2;
+		border-left: 1px solid $border-colour;
+		border-bottom: 1px solid $border-colour;
 	}
+}
+
+.c-sitemap__link {
+	margin-left: $line-height * 1.5;
 }

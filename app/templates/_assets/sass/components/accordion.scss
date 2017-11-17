@@ -1,0 +1,122 @@
+/* ===========================================================
+
+	# Accordion
+=========================================================== */
+
+.enhance {
+
+	.c-accordion__panel {
+		transition: height $speed $ease,
+					visibility $speed $ease;
+
+		&[aria-hidden="true"] {
+			visibility: hidden;
+			height: 0;
+		}
+
+		&[aria-hidden="false"] {
+			visibility: visible;
+		}
+	}
+
+	.c-accordion--is-ready {
+
+		.c-accordion__panel {
+			overflow: hidden;
+
+		}
+
+		.c-accordion__header {
+			cursor: pointer;
+		}
+
+	}
+
+
+	// style
+
+	.c-accordion__header {
+		font-size: 1.8rem;
+		border-top: 1px solid $border-colour;
+		border-bottom: 1px solid $border-colour;
+		margin-top: -1px;
+		padding: 2rem 0 2.1rem;
+		display: block;
+		position: relative;
+
+		&:first-of-type {
+			border-top: 0;
+		}
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			background-color: $border-colour;
+			position: absolute;
+			top: 50%;
+			opacity: 0;
+			transition: opacity $speed $ease,
+						background $speed $ease;
+		}
+
+		&:before {
+			width: 1.8rem;
+			height: .4rem;
+			right: 0;
+			margin-top: -.2rem;
+		}
+
+		&:after {
+			width: .4rem;
+			height: 1.8rem;
+			right: .7rem;
+			margin-top: -.9rem;
+
+		}
+
+		&:hover {
+
+			&:before,
+			&:after {
+				background-color: darken( $border-colour, 5 );
+			}
+
+		}
+
+
+		&:focus {
+
+			&:before,
+			&:after {
+				background-color: $pri
+			}
+
+		}
+
+		&[aria-selected="false"],
+		&[aria-selected="true"] {
+
+			&:before,
+			&:after {
+				opacity: 1;
+			}
+
+		}
+
+		&[aria-selected="true"] {
+
+			&:after {
+				opacity: 0;
+			}
+
+		}
+
+	}
+
+	.c-accordion__panel-inner {
+		padding: 2rem 0;
+	}
+
+
+}

@@ -1,11 +1,13 @@
+/* jshint node: true */
+
 'use strict';
 
 var paths = {
     assetsFolder: '_assets',
     templates: '_templates',
-    siteFolder: 'testSite',
-    assetsBuildFolder: 'testSite/assets'
-}
+    siteFolder: 'dist',
+    assetsBuildFolder: 'dist/assets'
+};
 
 /* ===========================================================
 	# Scripts
@@ -17,11 +19,12 @@ var headScripts = [
     paths.assetsFolder + '/_components/picturefill/dist/picturefill.js',
     paths.assetsFolder + '/js/lib/lazysizes.config.js',
     paths.assetsFolder + '/_components/lazysizes/lazysizes.js',
-    paths.assetsFolder + '/_components/lazysizes/plugins/unveilhooks/ls.unveilhooks.js'
+//    paths.assetsFolder + '/_components/lazysizes/plugins/unveilhooks/ls.unveilhooks.js'
 ];
 
 var mainScripts = [
-    paths.assetsFolder + '/js/components/jquery.tabs.js',
+    paths.assetsFolder + '/_components/slick-carousel/slick/slick.js',
+    paths.assetsFolder + '/js/components/*.js',
     paths.assetsFolder + '/js/main.js'
 ];
 
@@ -32,7 +35,8 @@ var mainScripts = [
 var gulp = require('gulp'),
     merge = require('merge-stream'),
     del = require('del'),
-    postcss = require('gulp-postcss'),
+	postcss = require('gulp-postcss'),
+	svgSprite = require('gulp-svg-sprite'),
     $ = require('gulp-load-plugins')({
         pattern: ['gulp-*', 'gulp.*'],
         replaceString: /\bgulp[\-.]/
@@ -123,6 +127,27 @@ gulp.task('modernizr', function(){
     .pipe( gulp.dest( paths.assetsFolder + '/js/lib') );
 });
 
+// icons
+gulp.task('icons', function() {
+    return gulp.src(paths.assetsFolder + '/img/icons/**/*.svg')
+		.pipe($.svgmin())
+        .pipe(svgSprite({
+            mode: {
+                symbol: { // symbol mode to build the SVG
+                    dest: 'icons', // destination foldeer
+                    sprite: 'icons.svg', //sprite name
+                    example: true, // Build sample page
+					prefix: "u-icon-"
+                }
+            },
+            svg: {
+                xmlDeclaration: false, // strip out the XML attribute
+                doctypeDeclaration: false // don't include the !DOCTYPE declaration
+            }
+        }))
+        .pipe(gulp.dest(paths.assetsBuildFolder));
+});
+
 // IE
 gulp.task( 'ie', function() {
     return gulp.src( '.tmp/styles/ie.css' )
@@ -145,12 +170,12 @@ gulp.task( 'ie', function() {
 // Optimize images
 gulp.task('images', function() {
     return gulp.src( paths.assetsFolder + '/img/**/*')
-        .pipe( $.cache( $.imagemin({
-            progressive: true,
-            interlaced: true
-        })))
+		.pipe( $.cache( $.imagemin({
+			progressive: true,
+			interlaced: true
+		})))
         .pipe( gulp.dest( paths.assetsBuildFolder + '/img') )
-        .pipe( $.size({title: 'images'}) )
+        .pipe( $.size({title: 'images'}) );
 //        .pipe( $.notify({ message: 'images task complete' }) );
 });
 
@@ -182,8 +207,9 @@ gulp.task('clean', function() {
 gulp.task( 'watch', function() {
     gulp.watch( paths.assetsFolder + '/sass/**/*.scss', [ 'css' ] );
     gulp.watch( paths.assetsFolder + '/js/**/*.js', [ 'js' ] );
-    gulp.watch( paths.assetsFolder + '/images/**/*', ['images'] );
-} );
+	gulp.watch( paths.assetsFolder + '/images/**/*', ['images'] );
+	gulp.watch( paths.assetsFolder + '/img/icons/**/*.svg', ['icons'] );
+});
 
 
 // Copy master template with correct asset references
@@ -196,11 +222,11 @@ gulp.task('refAssets', ['css','js'], function() {
 // gulp dev
 gulp.task('dev', ['clean','modernizr'], function() {
     isProduction = false;
-    gulp.start('refAssets', 'images', 'watch', 'copyfonts');
+    gulp.start('refAssets', 'images', 'watch', 'copyfonts', 'icons');
 });
 
 // gulp build
 gulp.task('build', ['clean', 'modernizr'], function() {
     isProduction = true;
-    gulp.start('refAssets', 'images', 'copyfonts');
+    gulp.start('refAssets', 'images', 'copyfonts', 'icons');
 });

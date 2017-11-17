@@ -19,6 +19,9 @@ button {
 	font-feature-settings: 'liga', 'kern'; // http://elliotjaystocks.com/blog/kerning/
 	font-kerning: normal;
 	line-height: $line-height;
+
+	text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 p + p,

@@ -1,0 +1,31 @@
+/* ===========================================================
+
+  # Overrides
+
+=========================================================== */
+
+.u-clearfix {
+	@include clearfix;
+}
+
+.u-hide-text,
+.u-visually-hidden {
+	@include hide-text;
+}
+
+.u-center-content,
+.u-center-text {
+	text-align: center;
+}
+
+.u-strong {
+	font-weight: $bold;
+}
+
+.u-light {
+	font-weight: 300;
+}
+
+.u-highlight-text {
+	color: $pri;
+}

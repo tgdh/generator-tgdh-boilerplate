@@ -12,16 +12,16 @@
 				color $speed $ease,
 				background $speed $ease,
 				visibility $speed $ease;
+}
 
-	&.is-hidden {
-		visibility: hidden;
-		opacity: 0;
-	}
+.c-alert--hidden {
+	visibility: hidden;
+	opacity: 0;
+}
 
-	&.is-visible {
-		visibility: visible;
-		opacity: 1;
-	}
+.c-alert--visible {
+	visibility: hidden;
+	opacity: 0;
 }
 
 .c-alert--success {
@@ -35,4 +35,3 @@
 .c-alert--info {
 	background-color: $pri;
 }
-

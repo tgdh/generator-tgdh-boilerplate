@@ -2,7 +2,6 @@
 
 /* ===========================================================
 *
-* Version: 	3.0.0
 * Authors: 	Kev Simpson & Paulius Putna
 * Company:  The Graphic Design House
 *
@@ -37,7 +36,11 @@
 		'objects/aspect',
 		'objects/align',
 //		'objects/logos',
-		'objects/media';
+		'objects/media',
+		'objects/page-components';
+
+@import 'lib/slick',
+		'lib/magnific-popup';
 
 @import 'components/header',
 		'components/nav',
@@ -46,8 +49,11 @@
 		'components/quote',
 		'components/footer',
 		'components/caption',
+//		'components/accordion',
 //		'components/carousel',
-//		'components/breadcrumb',
+//		'components/link-list',
+		'components/carousel',
+		'components/breadcrumb',
 //		'components/map',
 //		'components/social',
 //		'components/tile',
@@ -56,5 +62,8 @@
 		'components/tabs',
 		'components/sitemap';
 
-@import 'trumps/overrides',
-		'trumps/free-content';
+@import 'utility/overrides',
+		'utility/hide',
+		'utility/spacers';
+
+@import 'trumps/free-content';

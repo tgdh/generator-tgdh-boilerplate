@@ -28,59 +28,45 @@
 	position: relative;
 }
 
-.c-carousel--prev,
-.c-carousel--next {
-	font-size: 3.2rem;
+.c-carousel__nav {
+	color: $white;
+	background-color: $pri;
+	padding: 1rem;
+	border-radius: 50%;
 	position: absolute;
 	top: 50%;
 	z-index: 2;
 	line-height: 1;
-	transform: translateY( -50% );
-
-	&:before {
-		color: $pri;
-		transition: color $speed $ease;
-	}
-
-	i {
-		color: $white;
-		font-size: 1rem;
-		position: absolute;
-		top: 50%;
-		right: 0;
-		left: 0;
-		text-align: center;
-		margin-top: -.8rem;
-	}
+	font-size: 3.2rem;
+	text-align: center;
+	transition: color $speed $ease,
+				background-color $speed $ease;
 
 	&:hover,
 	&:focus {
-
-		&:before {
-			color: darken( $pri, 10 );
-		}
-
+		background-color: $sec;
 	}
 
 	&.slick-disabled {
 		&:before {
-			color: lighten( $pri, 20 );
+			color: lighten( $border-colour, 5 );
 		}
 	}
 }
 
-.c-carousel--prev {
+.c-carousel__nav--prev {
 	left: 0;
+	transform: translate( -50%, -50% );
 }
 
-.c-carousel--next {
+.c-carousel__nav--next {
 	right: 0;
+	transform: translate( 50%, -50% );
 }
 
 .c-carousel--invert {
 
-	.c-carousel--prev,
-	.c-carousel--next {
+	.c-carousel__nav {
 		color: $white;
 		opacity: .5;
 		transition: opacity $speed $ease;
@@ -112,21 +98,6 @@
         margin: 0 .5rem;
         padding: 0;
         cursor: pointer;
-
-		&:before {
-			display: none !important;
-		}
-
-		&:hover,
-		&:focus,
-		&.slick-active {
-
-			button:before {
-				background-color: $pri;
-			}
-
-		}
-
 	}
 
     button {
@@ -142,17 +113,22 @@
         padding: .5rem;
         cursor: pointer;
 		border-radius: 50%;
+		transition: background-color $speed $ease,
+					border-color $speed $ease;
 
         &:hover,
 		&:focus {
             outline: none;
+			background-color: $pri;
         }
     }
 
 	.slick-active {
+
 		button {
 			background-color: $pri;
 		}
+
 	}
 
 }
@@ -165,12 +141,16 @@
 			border-color: $white;
 		}
 
-		.slick-active {
-			button {
+		li {
+			&.slick-active {
+				background-color: $white;
+			}
+
+			&:hover,
+			&:focus {
 				background-color: $white;
 			}
 		}
-
 
 	}
 
@@ -183,20 +163,11 @@
 	}
 }
 
-@include respond-min( $mq-medium ) {
 
-	.c-carousel--prev,
-	.c-carousel--next {
+@include respond-min( $mq-large ) {
+
+	.c-carousel__nav {
 		font-size: 4.8rem;
 	}
-
-	.c-carousel--prev {
-		left: -2.4rem;
-	}
-
-	.c-carousel--next {
-		right: -2.4rem;
-	}
-
 
 }
